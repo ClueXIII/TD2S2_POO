@@ -16,14 +16,17 @@ public :
     bool same(Point & P);
 } ;
 
-/*class col_Point {
+class col_Point {
     Point *tab;
     int nbp;
     int cap;
 public :
-    col_Point(Point *tab, int nbp, int cap);
+    col_Point(int cap=100);
+    col_Point(Point *tab, int nbp, int cap=100); //comment faire sans avoir a mettre le nbe en paramétre
+    ~col_Point();
+    bool present(Point & P);
 };
-*/
+
 class Droite
 {
     double a ;

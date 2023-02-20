@@ -80,3 +80,27 @@ void Droite::tablePointBelong(Point *point_table, int &n) {
     point_table = new_point_table;
 }
 
+col_Point::col_Point(int cap) {
+    Point *new_point_table;
+    new_point_table = new Point[cap];
+    this -> tab = new_point_table;
+    this -> cap = cap;
+    this -> nbp = 0;
+}
+
+col_Point::col_Point(Point *tab, int nbp, int cap) {
+    this -> tab = tab;
+    this -> cap = cap;
+    this -> nbp = nbp;
+}
+
+col_Point::~col_Point() {
+    cout << " -- apel du destructeur --" << endl;
+}
+
+bool col_Point::present(Point &P) {
+    for (int i = 0; i < this->nbp; i++) {
+        if (this->tab[i].getAbscisse() == P.getAbscisse() && this->tab[i].getOrdonne() == P.getOrdonne()) return true;
+    }
+    return false;
+}
