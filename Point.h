@@ -23,8 +23,10 @@ class col_Point {
 public :
     col_Point(int cap=100);
     col_Point(Point *tab, int nbp, int cap=100); //comment faire sans avoir a mettre le nbe en paramétre
-    ~col_Point();
     bool present(Point & P);
+    bool add_point(Point & P);
+    bool supprimer(Point & P);
+    ~col_Point();
 };
 
 class Droite

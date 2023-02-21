@@ -99,8 +99,24 @@ col_Point::~col_Point() {
 }
 
 bool col_Point::present(Point &P) {
-    for (int i = 0; i < this->nbp; i++) {
+    for (int i = 0; i <= this->nbp; i++) {
         if (this->tab[i].getAbscisse() == P.getAbscisse() && this->tab[i].getOrdonne() == P.getOrdonne()) return true;
+    }
+    return false;
+}
+
+bool col_Point::add_point(Point &P) {
+    if (!(this->present(P)) && this->nbp < this -> cap) {
+        this -> tab[this -> nbp] = P;
+        return true; //renvoie vrais si l'ajout a pu se faire
+    } else {return false;} //renvoie faut si l'ajout n'est pas possible
+}
+
+bool col_Point::supprimer(Point &P) {
+    if (this->present(P)) {
+        nbp--;
+
+        return true;
     }
     return false;
 }
