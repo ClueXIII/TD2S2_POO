@@ -8,4 +8,8 @@ include_directories(.)
 add_executable(TD2S2_POO
         main.cpp
         Point.cpp
-        Point.h)
+        Point.h
+        Droite.cpp
+        Droite.h
+        col_point.cpp
+        col_point.h)

@@ -13,33 +13,7 @@ public :
     void afficher();
     double getAbscisse();
     double getOrdonne();
-    bool same(Point & P);
-} ;
-
-class col_Point {
-    Point *tab;
-    int nbp;
-    int cap;
-public :
-    col_Point(int cap=100);
-    col_Point(Point *tab, int nbp, int cap=100); //comment faire sans avoir a mettre le nbe en paramétre
-    bool present(Point & P);
-    bool add_point(Point & P);
-    bool supprimer(Point & P);
-    ~col_Point();
-};
-
-class Droite
-{
-    double a ;
-    double b ;
-public :
-    Droite (double a=0.0, double b=0.0) ;
-    Droite(Point & A, Point & B) ;
-    void afficherDroite();
-    bool pointBelong (Point & A);
-    bool parallel (Droite & d);
-    void tablePointBelong (Point *point_table, int &n);
+    void same(Point & P);
 } ;
 
 #endif
