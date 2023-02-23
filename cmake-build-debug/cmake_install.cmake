@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/quent/Desktop/github project/TD2S2_POO
+# Install script for directory: C:/Users/quent/Desktop/projet github/TD2S2_POO
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/quent/Desktop/github project/TD2S2_POO/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/quent/Desktop/projet github/TD2S2_POO/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

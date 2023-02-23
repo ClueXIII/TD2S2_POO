@@ -82,3 +82,35 @@ void col_Point::afficher_col() {
         cout << "Point " << i << " : (" << this -> tab[i].getAbscisse() << "," << this -> tab[i].getOrdonne() << ')' << endl;
     }
 }
+
+col_Point::col_Point(const col_Point &A) {
+    col_Point new_col(A.cap);//on alloue de l'espace mémoire
+    this->tab = new_col.tab; //on met this a cet espace mémoire
+    this->nbp =  A.nbp;
+    for (int i = 0; i < this->nbp; ++i) {
+        this->tab[i] = A.tab[i];//on copie tout les membre de A un par un
+    }
+}
+
+void col_Point::intersection(const col_Point &A, col_Point &B) {
+    for (int i = 0; i < this -> nbp; i ++) {
+        for (int j = 0; j < A.nbp; j ++) {
+            if(this->tab[i].getAbscisse() == A.tab[j].getAbscisse() && this->tab[i].getOrdonne() == A.tab[j].getOrdonne()) {
+                B.ajouter_bis(this->tab[i]);
+            }
+        }
+    }
+}
+
+col_Point::col_Point(const col_Point &A, const col_Point &B) {
+    col_Point new_col(A.cap+B.cap); //par défaut on définit la capacité elle aussi comme unions des deux collections
+    this->tab = new_col.tab;//on met this a cet espace mémoire
+    this->cap = new_col.cap;
+    this->nbp = new_col.nbp;
+    for (int i = 0; i < A.nbp; i ++) {
+        this->ajouter_bis(A.tab[i]);
+    }
+    for (int i = 0; i < B.nbp; i ++) {
+        this->ajouter_bis(B.tab[i]);
+    }// on ajoute tout les points de col A, puis tout les points de col B (les points en double seront automatiquement supprimés)
+}

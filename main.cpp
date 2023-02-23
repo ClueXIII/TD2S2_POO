@@ -49,5 +49,26 @@ cout << "-------------------------------------7---------------------------------
 cout << "-------------------------------------8-------------------------------------" << endl;
     colC.add_tab_in_col(point_table, n);
     colC.afficher_col();//on constate que seulement 2 point sur 3 sont ajouté car le point A est le même que le B, il n'est donc pas ajouté deux fois;
+cout << "-------------------------------------9-------------------------------------" << endl;
+    col_Point colD(colC);
+    cout << "col de points C : " << endl;
+    colC.afficher_col();
+    cout << "col de Point D (copie de C) : " << endl;
+    colD.afficher_col();
+cout << "-------------------------------------10-------------------------------------" << endl;
+    col_Point colE;
+    colB.intersection(colC,colE);//on met l'interesection entre les col B et C car ils sont construit a partir du même tableau de points (point table)
+    cout << "intersection entre les col B et C : " << endl;
+    colE.afficher_col();//logiquement seuls les point du tableau de point (point_table) ressortent (sans le doublon A et B)
+cout << "-------------------------------------11-------------------------------------" << endl;
+    col_Point colF(colB,colC);//col f doit comprendre tout les points des col B et C
+    cout << "col B : " << endl;
+    colB.afficher_col();
+    cout << "col C : " << endl;
+    colC.afficher_col();
+    cout << "col F : (union des col C et B)" << endl;
+    colF.afficher_col();
+cout << "-------------------------------------12-------------------------------------" << endl;
+    
     return 0;
 }
