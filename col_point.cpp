@@ -79,7 +79,8 @@ void col_Point::add_tab_in_col(Point *tableau, int nbe) {
 
 void col_Point::afficher_col() {
     for (int i = 0; i < this -> nbp; i ++) {
-        cout << "Point " << i << " : (" << this -> tab[i].getAbscisse() << "," << this -> tab[i].getOrdonne() << ')' << endl;
+        this->tab[i].afficher();
+        cout << endl;
     }
 }
 
@@ -113,4 +114,38 @@ col_Point::col_Point(const col_Point &A, const col_Point &B) {
     for (int i = 0; i < B.nbp; i ++) {
         this->ajouter_bis(B.tab[i]);
     }// on ajoute tout les points de col A, puis tout les points de col B (les points en double seront automatiquement supprimés)
+}
+
+void col_Point::col_stats() {//dans un premier temps on initialise les points qui vont permettre les vérifications a chaque itération
+    Point min_abscisse = this->tab[0];
+    Point max_abscisse = this->tab[0];
+    Point min_ordonne = this->tab[0];
+    Point max_ordonne = this->tab[0];
+    int sum_abscisse = 0;//on aditionnera chaque cordonnées pour en faire la moyenne et donc obtenir le centre
+    int sum_ordonne = 0;
+    for (int i = 0; i < this->nbp; i++) {
+        if (this->tab[i].getAbscisse() < min_abscisse.getAbscisse()) min_abscisse = this->tab[i];
+        if (this->tab[i].getAbscisse() > max_abscisse.getAbscisse()) max_abscisse = this->tab[i];
+        if (this->tab[i].getOrdonne() < min_ordonne.getOrdonne()) min_ordonne = this->tab[i];
+        if (this->tab[i].getOrdonne() > max_ordonne.getOrdonne()) max_ordonne = this->tab[i];
+        sum_abscisse += this->tab[i].getAbscisse();
+        sum_ordonne += this->tab[i].getOrdonne();
+    }//on affiche ensuite
+    cout <<
+         "Le Point avec la plus petite abscice est : ";
+    min_abscisse.afficher();
+    cout << endl <<
+         "Le point avec la plus grande abscisse est : ";
+    max_abscisse.afficher();
+    cout << endl <<
+         "Le point avec la plus petite ordonne est : ";
+    min_ordonne.afficher();
+    cout << endl <<
+         "Le point avec la plus grande ordonne est : ";
+    max_ordonne.afficher();
+    Point centre(sum_abscisse/nbp, sum_ordonne/nbp);
+    cout << endl <<
+        "Le centre de tout les point de la collection est environ en : ";
+    centre.afficher();
+    cout << endl;
 }

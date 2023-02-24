@@ -18,6 +18,7 @@ public :
     bool ajouter_bis(Point & P);
     void add_tab_in_col(Point *tab, int nbe);
     void intersection(const col_Point &A, col_Point &B);
+    void col_stats();
     ~col_Point();
 };
 

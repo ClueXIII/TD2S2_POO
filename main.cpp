@@ -69,6 +69,6 @@ cout << "-------------------------------------11--------------------------------
     cout << "col F : (union des col C et B)" << endl;
     colF.afficher_col();
 cout << "-------------------------------------12-------------------------------------" << endl;
-    
+    colF.col_stats(); //on pourra verifier chaque veleur renvoyé avec l'affichage de la collection de l'exercice précédent
     return 0;
 }
